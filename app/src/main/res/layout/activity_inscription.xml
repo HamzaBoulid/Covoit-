@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Inscription"
     android:orientation="vertical"
-    android:background="#80ff80">
+    android:background="#34a8eb">
 
     <ImageView
         android:id="@+id/logo"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="N'ATTENDEZ PLUS POUR NOUS REJOINDRE INSCRIVEZ-VOUS!"
-        android:textSize="10dp"
+        android:textSize="15dp"
         android:gravity="center"
         android:fontFamily="@font/karla"
         />
@@ -130,6 +130,7 @@
             android:textColor="@color/black">
         </com.google.android.material.button.MaterialButton>
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_accueil"
             android:layout_marginTop="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

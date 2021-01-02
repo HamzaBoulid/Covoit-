@@ -2,6 +2,7 @@ package UN.Miage.covoit;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -14,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Inscription extends AppCompatActivity {
     TextInputLayout nomInscription, prenomInscription, pseudoInscription, ageInscription, emailInscription, telephoneInscritpion, mdpInscription;
-    Button validerInscritpion;
+    Button validerInscritpion, retourAccueil;
     FirebaseDatabase BD = FirebaseDatabase.getInstance();
     DatabaseReference table;
 
@@ -66,7 +67,8 @@ public class Inscription extends AppCompatActivity {
             ageInscription.setError("Veuillez saisir votre age");
             return false;
             // AJOUTER VERIFIER AGE MAX ET MIN
-        }else{
+        }
+        else{
             ageInscription.setError(null);
             return true;
         }
@@ -79,7 +81,7 @@ public class Inscription extends AppCompatActivity {
 
     private Boolean validationEmail() {
         String email = emailInscription.getEditText().getText().toString();
-        String emailNorme = "[^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$]";
+        String emailNorme = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (email.isEmpty()) {
             emailInscription.setError("Email nécessaire");
             return false;
@@ -87,12 +89,10 @@ public class Inscription extends AppCompatActivity {
             emailInscription.setError("Veuillez saisir un email valide");
             return false;
         }else {
-            pseudoInscription.setError(null);
+            emailInscription.setError(null);
             return true;
         }
     }
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,7 @@ public class Inscription extends AppCompatActivity {
         telephoneInscritpion = findViewById(R.id.telephone_inscription);
         mdpInscription = findViewById(R.id.MDP_inscription);
         validerInscritpion = findViewById(R.id.button_inscription);
-
+        retourAccueil = findViewById(R.id.button_accueil);
 
         validerInscritpion.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -126,7 +126,18 @@ public class Inscription extends AppCompatActivity {
                 Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, age, email, telephone, mdp);
 
                 table = BD.getReference("users");
-                table.child(email).setValue(utilisateur);
+                table.child(pseudo).setValue(utilisateur);
+            }
+        });
+
+
+        retourAccueil.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                // AJOUTER UN SERVICE POUR MAINTENIR LACTIVITE INSCRIPTION EN VIE !
+                Intent accueil = new Intent(Inscription.this, EcranAccueil.class);
+                startActivity(accueil);
+                finish();
             }
         });
     }
