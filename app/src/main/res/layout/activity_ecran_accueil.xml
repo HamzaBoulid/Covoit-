@@ -23,9 +23,9 @@
         android:id="@+id/phrase_accueil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/karla"
-        android:gravity="center"/>
+        />
 
     <LinearLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -36,6 +36,7 @@
         android:orientation="vertical"
         >
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_connection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
@@ -47,11 +48,11 @@
                 android:hint="Adresse mail"></com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/mdp_connection"
             android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"

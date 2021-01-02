@@ -1,14 +1,22 @@
 package UN.Miage.covoit;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -16,9 +24,10 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Inscription extends AppCompatActivity {
     TextInputLayout nomInscription, prenomInscription, pseudoInscription, ageInscription, emailInscription, telephoneInscritpion, mdpInscription;
     Button validerInscritpion, retourAccueil;
+    private String TAG = "";
     FirebaseDatabase BD = FirebaseDatabase.getInstance();
     DatabaseReference table;
-
+    private FirebaseAuth mAuth;
 
     private boolean validationNom(){
         String nom = nomInscription.getEditText().getText().toString();
@@ -40,8 +49,7 @@ public class Inscription extends AppCompatActivity {
             return true;
         }
     }
-
-    private Boolean validationPseudo() {
+    private boolean validationPseudo() { //NORME PSEUDO A REVOIR !
         String pseudo = pseudoInscription.getEditText().getText().toString();
         String normePseudo = "^([a-zA-Z0-9_\\-\\.]+)";
         if (pseudo.isEmpty()) {
@@ -58,9 +66,6 @@ public class Inscription extends AppCompatActivity {
             return true;
         }
     }
-
-
-
     private boolean validationAge(){
         String age = ageInscription.getEditText().getText().toString();
         if (age.isEmpty()){
@@ -73,13 +78,7 @@ public class Inscription extends AppCompatActivity {
             return true;
         }
     }
-
-    /*
-    AJOUTER VERIF MOT DE PASSE
-    AJOUTER VERIF TELEPHONE
-     */
-
-    private Boolean validationEmail() {
+    private boolean validationEmail() {
         String email = emailInscription.getEditText().getText().toString();
         String emailNorme = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
         if (email.isEmpty()) {
@@ -94,8 +93,34 @@ public class Inscription extends AppCompatActivity {
         }
     }
 
+    /*
+    AJOUTER VERIF MOT DE PASSE
+    AJOUTER VERIF TELEPHONE
+    NORME PSEUDO A REVOIR !
+     */
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
+    }
+
+    public void updateUI(FirebaseUser account){
+        if(account != null){
+            Toast.makeText(this,"U Signed In successfully",Toast.LENGTH_LONG).show();
+            startActivity(new Intent(Inscription.this,EspaceUtilisateur.class));
+
+        }else {
+            Toast.makeText(this,"U Didnt signed in",Toast.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mAuth = FirebaseAuth.getInstance();
+
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
@@ -127,6 +152,22 @@ public class Inscription extends AppCompatActivity {
 
                 table = BD.getReference("users");
                 table.child(pseudo).setValue(utilisateur);
+                //register user
+                mAuth.createUserWithEmailAndPassword(email,mdp)
+                        .addOnCompleteListener(Inscription.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Log.d(TAG, "New user registration: " + task.isSuccessful());
+
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(Inscription.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    Inscription.this.startActivity(new Intent(Inscription.this, EspaceUtilisateur.class));
+                                    finish();
+                                }
+                            }
+                        });
             }
         });
 
@@ -140,5 +181,7 @@ public class Inscription extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 }
