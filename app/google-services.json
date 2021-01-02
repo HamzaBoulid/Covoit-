@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "214727514866",
+    "firebase_url": "https://covoitdb-default-rtdb.firebaseio.com",
+    "project_id": "covoitdb",
+    "storage_bucket": "covoitdb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214727514866:android:fa466034ee6b6f07614e6b",
+        "android_client_info": {
+          "package_name": "UN.Miage.covoit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnXMTTtFUFK89TJP66GHH_KMR24ECmBwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214727514866:android:ceb87d5bfac36574614e6b",
+        "android_client_info": {
+          "package_name": "un.miage.covoit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnXMTTtFUFK89TJP66GHH_KMR24ECmBwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214727514866:android:611b588a6d83bc0e614e6b",
+        "android_client_info": {
+          "package_name": "un.miage.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnXMTTtFUFK89TJP66GHH_KMR24ECmBwM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214727514866-9uvo3l8ug5dub56foatvvaf9ilica7a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
