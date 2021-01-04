@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Inscription"
+    android:orientation="vertical"
+    android:background="#34a8eb">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="22dp"
+        android:src="@drawable/covoit_" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Ajouter un trajet"
+        />
+
+    <EditText
+        android:id="@+id/depart"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:hint="Départ"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="186dp"
+        />
+    <EditText
+        android:id="@+id/arrivee"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:ems="10"
+        android:layout_marginTop="10dp"
+        android:hint="Destination"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="46dp"
+        tools:layout_editor_absoluteY="186dp"
+        />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Date départ"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/heure"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Heure départ"
+        android:inputType="time" />
+    <EditText
+        android:id="@+id/nb_passagers"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Nombre de passagers"
+        android:inputType="number" />
+    <EditText
+        android:id="@+id/prix"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Prix €"
+        android:inputType="number" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:text="Voulez-vous ajouter un commentaire?"
+        />
+    <EditText
+        android:id="@+id/commentaire"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="commentaire"
+        android:inputType="textLongMessage" />
+
+    <ImageButton
+        android:id="@+id/button_ajouter"
+        android:layout_width="60dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        tools:src="@android:drawable/ic_input_add" />
+
+</LinearLayout>

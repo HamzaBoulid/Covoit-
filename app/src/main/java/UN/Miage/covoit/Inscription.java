@@ -92,12 +92,23 @@ public class Inscription extends AppCompatActivity {
             return true;
         }
     }
-
     /*
-    AJOUTER VERIF MOT DE PASSE
     AJOUTER VERIF TELEPHONE
     NORME PSEUDO A REVOIR !
      */
+    private boolean validationMDP(){
+        String mdp = mdpInscription.getEditText().getText().toString();
+        if (mdp.isEmpty()) {
+            emailInscription.setError("Email nécessaire");
+            return false;
+        } else if (mdp.length() <= 6  ) {
+            emailInscription.setError("Votre mot de passe doit contenir au moins 6 caractères");
+            return false;
+        }else {
+            emailInscription.setError(null);
+            return true;
+        }
+    }
 
     @Override
     public void onStart() {
@@ -109,11 +120,7 @@ public class Inscription extends AppCompatActivity {
 
     public void updateUI(FirebaseUser account){
         if(account != null){
-            Toast.makeText(this,"U Signed In successfully",Toast.LENGTH_LONG).show();
             startActivity(new Intent(Inscription.this,EspaceUtilisateur.class));
-
-        }else {
-            Toast.makeText(this,"U Didnt signed in",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -160,7 +167,7 @@ public class Inscription extends AppCompatActivity {
                                 Log.d(TAG, "New user registration: " + task.isSuccessful());
 
                                 if (!task.isSuccessful()) {
-                                    Toast.makeText(Inscription.this, "Authentication failed.",
+                                    Toast.makeText(Inscription.this, "Inscription échouée. Vérifier votre connection.",
                                             Toast.LENGTH_SHORT).show();
                                 } else {
                                     Inscription.this.startActivity(new Intent(Inscription.this, EspaceUtilisateur.class));

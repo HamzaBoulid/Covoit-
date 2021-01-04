@@ -38,8 +38,6 @@ public class EcranAccueil extends AppCompatActivity {
             Toast.makeText(this,"Vous êtes connecté",Toast.LENGTH_LONG).show();
             startActivity(new Intent(EcranAccueil.this,EspaceUtilisateur.class));
 
-        }else {
-            Toast.makeText(this,"Vous n'êtes pas connecté",Toast.LENGTH_LONG).show();
         }
     }
     public void randomMessageAccueil(){
@@ -59,16 +57,36 @@ public class EcranAccueil extends AppCompatActivity {
         }
         phraseAccueil.setTextSize(25);
     }
-    private boolean validationSaisie(TextInputLayout layout){
-        String saisie = layout.getEditText().getText().toString();
-        if (saisie.isEmpty()){
-            layout.setError("Veuillez bien saisir votre nom/prenom");
+
+    private boolean validationEmail() {
+        String email = email_connection.getEditText().getText().toString();
+        String emailNorme = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        if (email.isEmpty()) {
+            email_connection.setError("Email nécessaire");
             return false;
-        }else{
-            layout.setError(null);
+        } else if (!email.matches(emailNorme)) {
+            email_connection.setError("Veuillez saisir un email valide");
+            return false;
+        }else {
+            email_connection.setError(null);
             return true;
         }
     }
+
+    private boolean validationMDP(){
+        String mdp = mdp_connection.getEditText().getText().toString();
+        if (mdp.isEmpty()) {
+            mdp_connection.setError("Email nécessaire");
+            return false;
+        } else if (mdp.length() <= 6  ) {
+            mdp_connection.setError("Votre mot de passe doit contenir au moins 6 caractères");
+            return false;
+        }else {
+            mdp_connection.setError(null);
+            return true;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
@@ -92,7 +110,7 @@ public class EcranAccueil extends AppCompatActivity {
         connection.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if (!validationSaisie(email_connection) || !validationSaisie(mdp_connection))
+                if (!validationEmail() || !validationMDP())
                     return;
 
                 String email = email_connection.getEditText().getText().toString();

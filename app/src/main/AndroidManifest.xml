@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="UN.Miage.covoit">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covoit">
-        <activity android:name=".EspaceUtilisateur"></activity>
+        <activity android:name=".AjouterTrajet"></activity>
+        <activity android:name=".EspaceUtilisateur" />
         <activity android:name=".Inscription" />
         <activity android:name=".EcranAccueil" />
         <activity android:name=".MainActivity">
