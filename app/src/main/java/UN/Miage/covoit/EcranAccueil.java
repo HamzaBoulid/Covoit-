@@ -1,17 +1,15 @@
 package UN.Miage.covoit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,20 +24,23 @@ public class EcranAccueil extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextInputLayout email_connection, mdp_connection;
     Button inscription, connection;
+    /*
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
-    }
+    }*/
     public void updateUI(FirebaseUser account) {
         if(account != null){
             Toast.makeText(this,"Vous êtes connecté",Toast.LENGTH_LONG).show();
-            startActivity(new Intent(EcranAccueil.this,EspaceUtilisateur.class));
-
+            Intent main = new Intent(EcranAccueil.this, EspaceUtilisateur.class);
+            startActivity(main);
+            finish();
         }
     }
+
     public void randomMessageAccueil(){
         Random random = new Random();
         int valeur = random.nextInt(3-1)+1; // on génère un nombre aléatoire entre 1 et 3 (inclus)
@@ -102,8 +103,9 @@ public class EcranAccueil extends AppCompatActivity {
         inscription.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                Intent inscription = new Intent(EcranAccueil.this, Inscription.class);
-                startActivity(inscription);
+                Intent main = new Intent(EcranAccueil.this, Inscription.class);
+                startActivity(main);
+                finish();
             }
         });
 

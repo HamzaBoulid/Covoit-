@@ -6,19 +6,46 @@
     android:layout_height="match_parent"
     tools:context=".EspaceUtilisateur">
 
-    <TextView
-        android:id="@+id/textView"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HELLO WORLD"
-        tools:layout_editor_absoluteX="201dp"
-        tools:layout_editor_absoluteY="363dp" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/button_deconnection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="197dp"
-        tools:layout_editor_absoluteY="458dp" />
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Ajouter trajet"
+            android:textColor="@color/black"
+            android:id="@+id/ajouter_trajet">
+        </com.google.android.material.button.MaterialButton>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Déconnexion"
+            android:textColor="@color/black"
+            android:id="@+id/deconnection">
+        </com.google.android.material.button.MaterialButton>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Déconnexion"
+            android:textColor="@color/black"
+            android:id="@+id/mes_trajets">
+        </com.google.android.material.button.MaterialButton>
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:text="Mes Infos"
+            android:textColor="@color/black"
+            android:id="@+id/infos_utilisateur">
+        </com.google.android.material.button.MaterialButton>
+
+    </LinearLayout>
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
