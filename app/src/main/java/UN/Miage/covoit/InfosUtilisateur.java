@@ -31,7 +31,7 @@ public class InfosUtilisateur extends AppCompatActivity {
         Intent intent = getIntent();
         String nomUtilisateur = intent.getStringExtra("nom");
         String prenomUtilisateur = intent.getStringExtra("prenom");
-        String ageUtilisateur = intent.getStringExtra("age");
+        String ageUtilisateur = intent.getStringExtra("age").concat(" ans");
         String pseudoUtilisateur = intent.getStringExtra("pseudo");
         String mailUtilisateur = intent.getStringExtra("mail");
 
@@ -39,8 +39,9 @@ public class InfosUtilisateur extends AppCompatActivity {
         nom.setText(nomUtilisateur);
         prenom.setText(prenomUtilisateur);
         pseudo.setText(pseudoUtilisateur);
-        mail.setText(mailUtilisateur);
         age.setText(ageUtilisateur);
+        mail.setText(mailUtilisateur);
+
 
 
     }

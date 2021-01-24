@@ -1,8 +1,5 @@
 package UN.Miage.covoit;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,13 +8,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
@@ -26,8 +25,8 @@ public class Inscription extends AppCompatActivity {
     Button validerInscritpion, retourAccueil;
     private String TAG = "";
     FirebaseDatabase BD = FirebaseDatabase.getInstance();
-    DatabaseReference table;
     private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     private boolean validationNom(){
         String nom = nomInscription.getEditText().getText().toString();
@@ -87,11 +86,16 @@ public class Inscription extends AppCompatActivity {
         } else if (!email.matches(emailNorme)) {
             emailInscription.setError("Veuillez saisir un email valide");
             return false;
-        }else {
+        }else if(email.length()+1 <= 10){
+            emailInscription.setError("Veuillez saisir un email valide");
+            return false;
+        }
+        else {
             emailInscription.setError(null);
             return true;
         }
     }
+
     /*
     AJOUTER VERIF TELEPHONE
     NORME PSEUDO A REVOIR !
@@ -99,17 +103,16 @@ public class Inscription extends AppCompatActivity {
     private boolean validationMDP(){
         String mdp = mdpInscription.getEditText().getText().toString();
         if (mdp.isEmpty()) {
-            emailInscription.setError("Email nécessaire");
+            mdpInscription.setError("Email nécessaire");
             return false;
-        } else if (mdp.length() <= 6  ) {
-            emailInscription.setError("Votre mot de passe doit contenir au moins 6 caractères");
+        } else if (mdp.length()+1 <= 6  ) {
+            mdpInscription.setError("Votre mot de passe doit contenir au moins 6 caractères");
             return false;
         }else {
-            emailInscription.setError(null);
+            mdpInscription.setError(null);
             return true;
         }
     }
-
     @Override
     public void onStart() {
         super.onStart();
@@ -144,7 +147,7 @@ public class Inscription extends AppCompatActivity {
         validerInscritpion.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(!validationPrenom() || !validationNom() || !validationPseudo() || !validationAge() || !validationEmail()){
+                if(!validationPrenom() || !validationNom() || !validationPseudo() || !validationAge() || !validationEmail() || !validationMDP()){
                     return;
                 }
                 String nom = nomInscription.getEditText().getText().toString();
@@ -155,26 +158,41 @@ public class Inscription extends AppCompatActivity {
                 String telephone = emailInscription.getEditText().getText().toString();
                 String mdp = mdpInscription.getEditText().getText().toString();
 
-                Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, age, email, telephone, mdp);
+                Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, age, email, telephone);
 
-                table = BD.getReference("users");
-                table.child(pseudo).setValue(utilisateur);
+
                 //register user
                 mAuth.createUserWithEmailAndPassword(email,mdp)
                         .addOnCompleteListener(Inscription.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 Log.d(TAG, "New user registration: " + task.isSuccessful());
+                                if (task.isSuccessful()) {
 
-                                if (!task.isSuccessful()) {
+                                    BD.getInstance().getReference("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(utilisateur).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()){
+                                                Toast.makeText(Inscription.this, "Inscription réussie." ,
+                                                        Toast.LENGTH_SHORT).show();
+                                                Intent espaceUtilisateur = new Intent(Inscription.this, EspaceUtilisateur.class);
+                                                startActivity(espaceUtilisateur);
+                                                finish();
+
+                                            }else{
+                                                Toast.makeText(Inscription.this, "Inscription échouée. Vérifier votre connection.",
+                                                        Toast.LENGTH_SHORT).show();
+                                            }
+                                        }
+                                    });
+                                } else {
                                     Toast.makeText(Inscription.this, "Inscription échouée. Vérifier votre connection.",
                                             Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Inscription.this.startActivity(new Intent(Inscription.this, EspaceUtilisateur.class));
-                                    finish();
                                 }
                             }
                         });
+
             }
         });
 

@@ -13,7 +13,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="660px"
+        android:layout_marginTop="450dp"
         android:gravity="center"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="42dp"
@@ -26,7 +26,7 @@
             android:layout_marginBottom="22dp"
             android:fontFamily="@font/baloo"
             android:textColor="@color/darkgreen"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
@@ -38,7 +38,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_connection"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/EditText.OutlinedBox"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center">
@@ -48,8 +48,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fontFamily="@font/baloo"
+                    android:textSize="17sp"
                     android:hint="@string/adresse_mail"
-                    android:inputType="textEmailAddress"
+                    android:inputType="text"
                     android:textColor="@color/darkgreen"
                     android:textColorHint="#6B576A37"></com.google.android.material.textfield.TextInputEditText>
 
@@ -57,7 +58,7 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/mdp_connection"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                style="@style/EditText.OutlinedBox"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -65,10 +66,10 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/karla_bold"
+                    android:fontFamily="@font/baloo"
+                    android:textSize="17sp"
                     android:hint="@string/mot_de_passe"
                     android:inputType="textPassword"
                     android:textColor="@color/darkgreen"
@@ -82,29 +83,27 @@
             <Button
                 android:id="@+id/connection"
                 style="@style/Widget.App.ShapeableButton"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="50px"
-                android:backgroundTint="@android:color/transparent"
+                android:layout_marginTop="50dp"
                 android:fontFamily="@font/baloo"
                 android:text="@string/se_connecter"
-                android:textColor="@color/darkgreen"
-                android:textSize="23px"></Button>
+                android:textColor="@color/brightgreen"
+                android:textSize="18sp"></Button>
 
             <Button
                 android:id="@+id/inscription"
                 style="@style/Widget.App.ShapeableButton"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="220dp"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10px"
-                android:layout_marginBottom="15px"
-                android:backgroundTint="@android:color/transparent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:fontFamily="@font/baloo"
-                android:text="S'INSCRIRE"
-                android:textColor="@color/darkgreen"
-                android:textSize="23px"></Button>
+                android:text="@string/s_inscrire"
+                android:textColor="@color/brightgreen"
+                android:textSize="18sp"></Button>
 
             <TextView
                 android:id="@+id/MDPoublie"
@@ -113,7 +112,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:fontFamily="@font/amiko_bold"
-                android:text="Mot de passe/e-mail oublié ?"
+                android:text="@string/mot_de_passe_e_mail_oubli"
                 android:textColor="@color/darkgreen"
                 android:textSize="15sp" />
 

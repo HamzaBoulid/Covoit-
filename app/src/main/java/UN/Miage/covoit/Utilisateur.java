@@ -1,19 +1,18 @@
 package UN.Miage.covoit;
 
 public class Utilisateur {
-    String nom, prenom, pseudo, age, email, telephone, mdp;
+    String nom, prenom, pseudo, age, email, telephone, mdp, id;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(String nom, String prenom, String pseudo, String age, String email, String telephone, String mdp) {
+    public Utilisateur(String nom, String prenom, String pseudo, String age, String email, String telephone) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
         this.age = age;
         this.email = email;
         this.telephone = telephone;
-        this.mdp = mdp;
     }
 
     public String getNom() {
@@ -64,11 +63,4 @@ public class Utilisateur {
         this.telephone = telephone;
     }
 
-    public String getMdp() {
-        return mdp;
-    }
-
-    public void setMdp(String mdp) {
-        this.mdp = mdp;
-    }
 }

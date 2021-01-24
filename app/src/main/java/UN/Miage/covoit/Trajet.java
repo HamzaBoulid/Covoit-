@@ -1,6 +1,7 @@
 package UN.Miage.covoit;
 
-public class Trajet {String id, depart, destination, date, heure, passagers, prix, commentaire, conducteur;
+public class Trajet {
+    String depart, destination, date, heure, passagers, prix, commentaire, conducteur;
 
     public Trajet() {
     }

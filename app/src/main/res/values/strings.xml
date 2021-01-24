@@ -1,3 +1,9 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">covoit</string>
+    <string name="adresse_mail">Adresse mail</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="se_connecter">SE CONNECTER</string>
+    <string name="s_inscrire">S\'INSCRIRE</string>
+    <string name="mot_de_passe_e_mail_oubli">Mot de passe/e-mail oublié ?</string>
+    <string name="pseudo">Pseudo</string>
 </resources>

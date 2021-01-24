@@ -11,11 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covoit">
-        <activity android:name=".InfosUtilisateur"></activity>
-        <activity android:name=".MesTrajets" />
-        <activity android:name=".AjouterUnTrajet" />
-        <activity android:name=".EspaceUtilisateur" />
-        <activity android:name=".Inscription" />
+        <activity android:name=".MesTrajets"></activity>
+        <activity
+            android:name=".InfosUtilisateur"
+            android:parentActivityName=".EspaceUtilisateur" />
+        <activity
+            android:name=".AjouterUnTrajet"
+            android:parentActivityName=".EspaceUtilisateur" />
+        <activity
+            android:name=".EspaceUtilisateur"
+            android:parentActivityName=".EcranAccueil" />
+        <activity
+            android:name=".Inscription"
+            android:parentActivityName=".EcranAccueil" />
         <activity android:name=".EcranAccueil" />
         <activity android:name=".MainActivity">
             <intent-filter>

@@ -1,52 +1,209 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".InfosUtilisateur">
+    tools:context=".InfosUtilisateur"
+    android:background="@drawable/profil_bg">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="150px"
+        android:orientation="horizontal">
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Mes Infos"
-            android:textSize="50dp">
-        </TextView>
-        <TextView
-            android:id="@+id/info_nom"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:textSize="50dp"></TextView>
-        <TextView
-            android:id="@+id/info_prenom"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:textSize="50dp"></TextView>
-        <TextView
-            android:id="@+id/info_age"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:textSize="50dp"></TextView>
-        <TextView
-            android:id="@+id/info_mail"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:textSize="50dp"></TextView>
-        <TextView
-            android:id="@+id/info_pseudo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:textColor="@color/black"
-            android:textSize="50dp"
-            ></TextView>
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="200dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="110dp"
+                android:src="@drawable/voiture"
+                android:alpha="0.8"/>
+
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="MON COMPTE"
+                android:textColor="@color/darkgreen"
+                android:fontFamily="@font/baloo"
+                android:textSize="40sp">
+            </TextView>
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="540dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Bonjour, "
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/darkgreen"
+                        android:textSize="30sp">
+                    </TextView>
+
+                </LinearLayout>
+
+            <TextView
+                android:id="@+id/info_pseudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:fontFamily="@font/amiko_bold"
+                android:textColor="@color/darkgreen"
+                android:textSize="25sp">
+            </TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/profil"
+                    android:alpha="0.8"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="40dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/info_prenom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/amiko_bold"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="25sp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/info_nom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/amiko_bold"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="25sp">
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:alpha="0.8"
+                    android:src="@drawable/age_icon" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/info_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amiko_bold"
+                android:textColor="@color/darkgreen"
+                android:textSize="25sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="15dp"
+                    android:alpha="0.8"
+                    android:src="@drawable/mail_icon" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/info_mail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center"
+                android:fontFamily="@font/amiko_bold"
+                android:textColor="@color/darkgreen"
+                android:textSize="25sp"></TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
 </LinearLayout>
+

@@ -1,51 +1,305 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context=".EspaceUtilisateur">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Ajouter trajet"
-            android:textColor="@color/black"
-            android:id="@+id/ajouter_trajet">
-        </com.google.android.material.button.MaterialButton>
-        <com.google.android.material.button.MaterialButton
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Déconnexion"
-            android:textColor="@color/black"
-            android:id="@+id/deconnection">
-        </com.google.android.material.button.MaterialButton>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Déconnexion"
-            android:textColor="@color/black"
-            android:id="@+id/mes_trajets">
-        </com.google.android.material.button.MaterialButton>
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Mes Infos"
-            android:textColor="@color/black"
-            android:id="@+id/infos_utilisateur">
-        </com.google.android.material.button.MaterialButton>
+            android:layout_height="230dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/covoit_" />
+
+        <LinearLayout
+            android:layout_width="500dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="100px"
+                    android:layout_marginRight="300px"
+                    android:fontFamily="@font/baloo"
+                    android:text="BIENVENUE !"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="40dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/baloo"
+                    android:text="Vous cherchez un trajet ?"
+                    android:textColor="@color/darkgreen"
+                    android:textSize="25dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="50px"
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="42dp"
+                tools:layout_editor_absoluteY="195dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Depart"
+                        style="@style/EditText.OutlinedBox"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/amiko_bold"
+                            android:hint="Départ"
+                            android:inputType="text"
+                            android:textColor="@color/darkgreen"
+                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="8dp"
+                    android:layout_height="43dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/fleche" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="42dp"
+                    tools:layout_editor_absoluteY="195dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Arrivee"
+                        style="@style/EditText.OutlinedBox"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/amiko_bold"
+                            android:hint="Arrivée"
+                            android:inputType="text"
+                            android:textColor="@color/darkgreen"
+                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Date"
+                        style="@style/EditText.OutlinedBox"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/amiko_bold"
+                            android:hint="Date"
+                            android:inputType="date"
+                            android:textColor="@color/darkgreen"
+                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="8dp"
+                    android:layout_height="43dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/Heure"
+                        style="@style/EditText.OutlinedBox"
+                        android:layout_width="220dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:errorEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fontFamily="@font/amiko_bold"
+                            android:hint="Heure"
+                            android:inputType="time"
+                            android:textColor="@color/darkgreen"
+                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/NbPersonne"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/amiko_bold"
+                        android:hint="Nombre de passager(s)"
+                        android:inputType="number"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/rechercher"
+                style="@style/Widget.App.ShapeableButton"
+                android:backgroundTint="@color/brightgreen"
+                android:layout_width="210dp"
+                android:layout_height="55dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/baloo"
+                android:text="RECHERCHER"
+                android:textColor="@color/darkgreen"
+                android:textSize="17sp"></Button>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/deconnection"
+                    style="@style/Widget.App.ShapeableButton"
+                    android:layout_width="210dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="100px"
+                    android:fontFamily="@font/baloo"
+                    android:text="SE DECONNECTER"
+                    android:textColor="@color/brightgreen"
+                    android:textSize="17sp"></Button>
+
+                <Button
+                    android:id="@+id/ajouter_trajet"
+                    style="@style/Widget.App.ShapeableButton"
+                    android:layout_width="210dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/baloo"
+                    android:text="AJOUTER UN TRAJET"
+                    android:textColor="@color/brightgreen"
+                    android:textSize="17sp"></Button>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/mes_trajets"
+                    style="@style/Widget.App.ShapeableButton"
+                    android:layout_width="210dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="100px"
+                    android:fontFamily="@font/baloo"
+                    android:text="MES TRAJETS"
+                    android:textColor="@color/brightgreen"
+                    android:textSize="17sp"></Button>
+
+                <Button
+                    android:id="@+id/infos_utilisateur"
+                    style="@style/Widget.App.ShapeableButton"
+                    android:layout_width="210dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/baloo"
+                    android:text="MON PROFIL"
+                    android:textColor="@color/brightgreen"
+                    android:textSize="17sp"></Button>
+
+            </LinearLayout>
+        </LinearLayout>
 
     </LinearLayout>
+</LinearLayout>
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>

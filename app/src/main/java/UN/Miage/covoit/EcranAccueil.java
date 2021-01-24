@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,8 +16,6 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.Random;
 
 public class EcranAccueil extends AppCompatActivity {
     private FirebaseAuth mAuth;
@@ -40,7 +37,7 @@ public class EcranAccueil extends AppCompatActivity {
             finish();
         }
     }
-
+/*
     public void randomMessageAccueil(){
         Random random = new Random();
         int valeur = random.nextInt(3-1)+1; // on génère un nombre aléatoire entre 1 et 3 (inclus)
@@ -58,7 +55,7 @@ public class EcranAccueil extends AppCompatActivity {
         }
         phraseAccueil.setTextSize(25);
     }
-
+*/
     private boolean validationEmail() {
         String email = email_connection.getEditText().getText().toString();
         String emailNorme = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
@@ -79,7 +76,7 @@ public class EcranAccueil extends AppCompatActivity {
         if (mdp.isEmpty()) {
             mdp_connection.setError("Email nécessaire");
             return false;
-        } else if (mdp.length() <= 6  ) {
+        } else if (mdp.length()+1 <= 6  ) {
             mdp_connection.setError("Votre mot de passe doit contenir au moins 6 caractères");
             return false;
         }else {
@@ -94,7 +91,7 @@ public class EcranAccueil extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecran_accueil);
-        randomMessageAccueil();
+       // randomMessageAccueil();
         inscription = findViewById(R.id.inscription);
         connection = findViewById(R.id.connection);
         email_connection = findViewById(R.id.email_connection);
@@ -105,7 +102,7 @@ public class EcranAccueil extends AppCompatActivity {
             public void onClick(View view){
                 Intent main = new Intent(EcranAccueil.this, Inscription.class);
                 startActivity(main);
-                finish();
+                //faut pas ajouter finish pour pouvoir revenir en arrière
             }
         });
 

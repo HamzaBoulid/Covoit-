@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,19 +18,19 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AjouterUnTrajet extends AppCompatActivity {
 
-    TextInputLayout depart, destination, heure, passagers, date, prix, commentaire;
+    TextInputLayout depart, destination, heure, passagers, date, prix;
+    EditText commentaire;
     Button validerTrajet, deconnection;
-     FirebaseDatabase BD = FirebaseDatabase.getInstance();
-     DatabaseReference table;
-     String key;
-     private FirebaseAuth mAuth;
+    FirebaseDatabase BD = FirebaseDatabase.getInstance();
+    DatabaseReference table;
+    String key;
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
 
     @Override
     public void onStart() {
         super.onStart();
-
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        key = currentUser.getEmail();
         updateUI(currentUser);
     }
 
@@ -46,7 +47,7 @@ public class AjouterUnTrajet extends AppCompatActivity {
     }
 
     //verifier la saisie
-   private boolean validationDepart(){
+    private boolean validationDepart(){
         String nom = depart.getEditText().getText().toString();
         if (nom.isEmpty()){
             depart.setError("Veuillez tapper la ville de départ s'il vous plait ");
@@ -116,8 +117,11 @@ public class AjouterUnTrajet extends AppCompatActivity {
         setContentView(R.layout.activity_ajouter_un_trajet);
         depart = findViewById(R.id.lieu_depart);
         destination = findViewById(R.id.lieu_arrivee);
+        date = findViewById(R.id.date_depart);
         heure = findViewById(R.id.heure_depart);
         passagers = findViewById(R.id.nb_passagers);
+        prix = findViewById(R.id.prix);
+        commentaire = findViewById(R.id.commentaire);
         deconnection = findViewById(R.id.button_deconnection);
         validerTrajet = findViewById(R.id.button_ajouter_trajet);
 
@@ -127,14 +131,15 @@ public class AjouterUnTrajet extends AppCompatActivity {
                 if(!validationDepart() || !validationDestination()  || !validationHeure() || !validationPassagers()){
                     return;
                 }
-               String villeDepart = depart.getEditText().getText().toString();
+                String villeDepart = depart.getEditText().getText().toString();
                 String villeDestination = destination.getEditText().getText().toString();
-              //  String dateDepart = date.getEditText().getText().toString();
-              String heureDepart = heure.getEditText().getText().toString();
-               String nbPassager = passagers.getEditText().getText().toString();
-             /*   String prixPersonne = prix.getEditText().getText().toString();
-               String comment = commentaire.getEditText().getText().toString();  */
-                String id = "7";
+                String dateDepart = date.getEditText().getText().toString();
+                String heureDepart = heure.getEditText().getText().toString();
+                String nbPassager = passagers.getEditText().getText().toString();
+                String prixPersonne = prix.getEditText().getText().toString();
+                String comment = commentaire.getText().toString();
+                currentUser = mAuth.getCurrentUser();
+                String conducteur = currentUser.getUid();
                 // A completer les verifs et modifier les champs (entiers , date !! ..)
 
                 table = BD.getReference("Trajets");
@@ -142,7 +147,7 @@ public class AjouterUnTrajet extends AppCompatActivity {
                 DatabaseReference newPostRef = postsRef.push();
 
 
-                Trajet trajet = new Trajet("haha","haha","haha","hahah","haha","haha", "haha", key);
+                Trajet trajet = new Trajet(villeDepart,villeDestination,dateDepart,heureDepart,nbPassager,prixPersonne, comment, conducteur);
                 newPostRef.setValue(trajet);
 
                 Intent mesTrajets = new Intent(AjouterUnTrajet.this, MesTrajets.class);
