@@ -19,13 +19,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EspaceUtilisateur extends AppCompatActivity {
-    Button deconnection, ajouter_trajet, mes_trajets, mes_infos;
+    Button deconnection, ajouter_trajet, mes_trajets, mes_infos, rechercherTrajet;
     String id;
     // FirebaseDatabase BD = FirebaseDatabase.getInstance();
     //   DatabaseReference table;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
     private FirebaseUser currentUser;
+
 
 
     @Override
@@ -36,7 +37,7 @@ public class EspaceUtilisateur extends AppCompatActivity {
     }
 
     // Verif mdp avec currentUser à ajouter
-    public void lancerSession() {
+    public void infosUtilisateur() {
         currentUser = mAuth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
         id = currentUser.getUid();
@@ -88,6 +89,7 @@ public class EspaceUtilisateur extends AppCompatActivity {
         ajouter_trajet = findViewById((R.id.ajouter_trajet));
         mes_trajets=findViewById(R.id.mes_trajets);
         mes_infos=findViewById(R.id.infos_utilisateur);
+        rechercherTrajet=findViewById(R.id.rechercherTrajet);
 
 
         deconnection.setOnClickListener(new View.OnClickListener(){
@@ -113,8 +115,8 @@ public class EspaceUtilisateur extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent main = new Intent(EspaceUtilisateur.this, MesTrajets.class);
-                startActivity(main);
+                Intent mesTrajets = new Intent(EspaceUtilisateur.this, MesTrajets.class);
+                startActivity(mesTrajets);
                 //faut pas ajouter finish pour pouvoir revenir en arrière
             }
         });
@@ -122,14 +124,15 @@ public class EspaceUtilisateur extends AppCompatActivity {
         mes_infos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lancerSession();
+                infosUtilisateur();
             }
         });
 
-
-
-
-
-
-    }
+        rechercherTrajet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent rechercherTrajet = new Intent(EspaceUtilisateur.this, ResultatRecherche.class);
+                startActivity(rechercherTrajet);
+            }
+        });    }
 }

@@ -135,7 +135,8 @@ public class AjouterUnTrajet extends AppCompatActivity {
                 String villeDestination = destination.getEditText().getText().toString();
                 String dateDepart = date.getEditText().getText().toString();
                 String heureDepart = heure.getEditText().getText().toString();
-                String nbPassager = passagers.getEditText().getText().toString();
+                String placesDisponibles = passagers.getEditText().getText().toString();
+                String passagers = "0";
                 String prixPersonne = prix.getEditText().getText().toString();
                 String comment = commentaire.getText().toString();
                 currentUser = mAuth.getCurrentUser();
@@ -147,7 +148,7 @@ public class AjouterUnTrajet extends AppCompatActivity {
                 DatabaseReference newPostRef = postsRef.push();
 
 
-                Trajet trajet = new Trajet(villeDepart,villeDestination,dateDepart,heureDepart,nbPassager,prixPersonne, comment, conducteur);
+                Trajet trajet = new Trajet(villeDepart,villeDestination,dateDepart,heureDepart,placesDisponibles, passagers, prixPersonne, comment, conducteur);
                 newPostRef.setValue(trajet);
 
                 Intent mesTrajets = new Intent(AjouterUnTrajet.this, MesTrajets.class);

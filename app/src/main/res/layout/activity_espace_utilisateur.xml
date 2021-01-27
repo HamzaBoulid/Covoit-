@@ -223,7 +223,7 @@
 
 
             <Button
-                android:id="@+id/rechercher"
+                android:id="@+id/rechercherTrajet"
                 style="@style/Widget.App.ShapeableButton"
                 android:backgroundTint="@color/brightgreen"
                 android:layout_width="210dp"

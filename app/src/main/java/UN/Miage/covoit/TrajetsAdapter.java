@@ -25,7 +25,7 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
     @NonNull
     @Override
     public TrajetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_trajets, parent, false);
+        View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_mes_trajets, parent, false);
         return new TrajetViewHolder(view);
     }
 
@@ -36,7 +36,6 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
         holder.textViewDate.setText(trajet.getDate());
         holder.textViewPrix.setText(trajet.getPrix());
         holder.textViewDepart.setText(trajet.getDepart());
-
     }
 
     @Override
@@ -50,10 +49,10 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
 
         public TrajetViewHolder(@NonNull View itemView) {
             super(itemView);
+            textViewDepart = itemView.findViewById(R.id.text_view_depart);
             textViewArrivee = itemView.findViewById(R.id.text_view_arrivee);
             textViewDate = itemView.findViewById(R.id.text_view_date);
             textViewPrix = itemView.findViewById(R.id.text_view_prix);
-            textViewDepart = itemView.findViewById(R.id.text_view_depart);
 
         }
     }

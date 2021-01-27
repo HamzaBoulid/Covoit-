@@ -10,7 +10,7 @@
     android:orientation="vertical"
     tools:context=".EcranAccueil">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
@@ -28,12 +28,11 @@
             android:textColor="@color/darkgreen"
             android:textSize="20sp" />
 
-        <LinearLayout
+        <RelativeLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:orientation="vertical"
             android:layout_width="wrap_content">
 
             <com.google.android.material.textfield.TextInputLayout
@@ -62,6 +61,7 @@
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_below="@+id/email_connection"
                 android:layout_marginTop="20dp">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -83,10 +83,11 @@
             <Button
                 android:id="@+id/connection"
                 style="@style/Widget.App.ShapeableButton"
-                android:layout_width="220dp"
+                android:layout_width="400dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="50dp"
+                android:layout_below="@+id/mdp_connection"
                 android:fontFamily="@font/baloo"
                 android:text="@string/se_connecter"
                 android:textColor="@color/brightgreen"
@@ -95,11 +96,12 @@
             <Button
                 android:id="@+id/inscription"
                 style="@style/Widget.App.ShapeableButton"
-                android:layout_width="220dp"
+                android:layout_width="400dp"
                 android:layout_height="60dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
+                android:layout_below="@+id/connection"
                 android:fontFamily="@font/baloo"
                 android:text="@string/s_inscrire"
                 android:textColor="@color/brightgreen"
@@ -109,13 +111,27 @@
                 android:id="@+id/MDPoublie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
+                android:layout_below="@+id/inscription"
                 android:fontFamily="@font/amiko_bold"
                 android:text="@string/mot_de_passe_e_mail_oubli"
                 android:textColor="@color/darkgreen"
                 android:textSize="15sp" />
+            <!-- A faire fonctionner,
+            et implmenter surtout pour l'affichage des trajets qui prend du temps -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:padding="20dp"
+                android:background="@drawable/green_circle_loading"
+                android:elevation="8dp"
+                android:visibility="visible">
+                <ProgressBar
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"></ProgressBar>
+            </RelativeLayout>
 
-        </LinearLayout>
-    </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 </LinearLayout>
