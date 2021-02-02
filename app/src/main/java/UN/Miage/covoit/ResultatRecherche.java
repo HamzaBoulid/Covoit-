@@ -19,11 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MesTrajets extends AppCompatActivity {
+public class ResultatRecherche extends AppCompatActivity {
 
     private RecyclerView recyclerView;
-    private TrajetsAdapter adapter;
+    private ResultatRechercheAdapter adapter;
     private List<Trajet> trajetList;
+    private List<String> trajetsKeys;
 
     ValueEventListener valueEventListener = new ValueEventListener() {
         @Override
@@ -31,14 +32,16 @@ public class MesTrajets extends AppCompatActivity {
             trajetList.clear();
             if (dataSnapshot.exists()) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Toast.makeText(MesTrajets.this, "trajet(s) récupéré(s)." ,
+                    Toast.makeText(ResultatRecherche.this, "trajet(s) récupéré(s)." ,
                             Toast.LENGTH_SHORT).show();
                     Trajet trajet = new Trajet();
                     trajet.depart = snapshot.child("depart").getValue(String.class);
                     trajet.destination = snapshot.child("destination").getValue(String.class);
                     trajet.date = snapshot.child("date").getValue(String.class);
                     trajet.prix = snapshot.child("prix").getValue(String.class);
-
+                    trajet.passagersMax = snapshot.child("placesMax").getValue(String.class);
+                    trajet.passagersReserves = snapshot.child("passagers").getValue(String.class);
+                    trajetsKeys.add(snapshot.getKey());
                     trajetList.add(trajet);
                 }
                 adapter.notifyDataSetChanged();
@@ -53,18 +56,18 @@ public class MesTrajets extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mes_trajets);
+        setContentView(R.layout.activity_resultat_recherche);
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         trajetList = new ArrayList<>();
-        adapter = new TrajetsAdapter(this, trajetList);
+        trajetsKeys = new ArrayList<>();
+        adapter = new ResultatRechercheAdapter(this, trajetList, trajetsKeys);
         recyclerView.setAdapter(adapter);
 
         Query query = FirebaseDatabase.getInstance().getReference("Trajets").orderByChild("conducteur")
                 .equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
-
 
         query.addListenerForSingleValueEvent(valueEventListener);
 
