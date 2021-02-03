@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class InfosUtilisateur extends AppCompatActivity {
+public class   InfosUtilisateur extends AppCompatActivity {
 
     TextView nom, prenom, age, mail, pseudo;
 

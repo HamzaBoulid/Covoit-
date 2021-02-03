@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Covoit">
-        <activity android:name=".AfficherTrajetSeul"></activity>
+        <activity android:name=".MesReservations"></activity>
+        <activity android:name=".AfficherTrajetSeul" />
         <activity android:name=".ResultatRecherche" />
         <activity android:name=".MesTrajets" />
         <activity
