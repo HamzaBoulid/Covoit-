@@ -28,10 +28,11 @@ public class ResultatRechercheAdapter extends RecyclerView.Adapter<ResultatReche
     private Context mCtx;
     private List<Trajet> trajetsList;
     private List<String> trajetsKeys;
+
+    private String key;
     private FirebaseAuth mAuth;
     private DatabaseReference reference;
     private FirebaseUser currentUser;
-    private String key;
 
 
     public ResultatRechercheAdapter(Context mCtx, List<Trajet> trajetList, List<String> trajetsKeys) {
@@ -48,7 +49,6 @@ public class ResultatRechercheAdapter extends RecyclerView.Adapter<ResultatReche
     }
 
     public void chargerTrajet(String keyTrajet) {
-        currentUser = mAuth.getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("Trajets");
         reference.child(keyTrajet).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -57,10 +57,10 @@ public class ResultatRechercheAdapter extends RecyclerView.Adapter<ResultatReche
                 if (trajet != null){
                     Intent intent = new Intent(mCtx.getApplicationContext(), AfficherTrajetSeul.class);
                     intent.putExtra("depart", trajet.depart);
-                    intent.putExtra("arrivee", trajet.destination);
+                    intent.putExtra("destination", trajet.destination);
                     intent.putExtra("date", trajet.date);
                     intent.putExtra("prix", trajet.prix);
-                    intent.putExtra("conducteur", trajet.conducteur);
+                    intent.putExtra("key", keyTrajet);
                     mCtx.startActivity(intent);
                 }
                 else {
@@ -89,7 +89,7 @@ public class ResultatRechercheAdapter extends RecyclerView.Adapter<ResultatReche
         holder.afficherTrajet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chargerTrajet("tZ64tZdgsYU0LISZKhhEK3tAukU2");
+                chargerTrajet(trajetsKeys.get(position));
             }
         });
 
