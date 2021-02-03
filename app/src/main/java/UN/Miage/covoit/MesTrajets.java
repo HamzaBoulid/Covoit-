@@ -40,7 +40,7 @@ public class MesTrajets extends AppCompatActivity {
                     trajet.destination = snapshot.child("destination").getValue(String.class);
                     trajet.date = snapshot.child("date").getValue(String.class);
                     trajet.prix = snapshot.child("prix").getValue(String.class);
-                    trajet.passagers = snapshot.child("passagers").getValue(String.class);
+                    trajet.passagersReserves = snapshot.child("passagers").getValue(String.class);
                     trajetList.add(trajet);
                 }
                 adapter.notifyDataSetChanged();

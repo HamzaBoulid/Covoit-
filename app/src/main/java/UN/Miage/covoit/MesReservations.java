@@ -40,12 +40,11 @@ public class MesReservations extends AppCompatActivity {
                         Toast.makeText(MesReservations.this, "jjj(s) récupéré(s).",
                                 Toast.LENGTH_SHORT).show();
                         Trajet trajet = new Trajet();
-                        trajet.conducteur = snapshot.child("conducteur").getValue(String.class);
                         trajet.depart = snapshot.child("depart").getValue(String.class);
                         trajet.destination = snapshot.child("destination").getValue(String.class);
                         trajet.date = snapshot.child("date").getValue(String.class);
                         trajet.prix = snapshot.child("prix").getValue(String.class);
-                        trajet.passagers = snapshot.child("passagers").getValue(String.class);
+                        trajet.passagersReserves = snapshot.child("passagers").getValue(String.class);
                         trajetList.add(trajet);
                     }
                 }

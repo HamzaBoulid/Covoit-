@@ -13,8 +13,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,9 +27,6 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
     private Context mCtx;
     private List<Trajet> trajetList;
     private DatabaseReference reference;
-    private FirebaseAuth mAuth;
-    private FirebaseUser currentUser;
-
 
 
     public TrajetsAdapter(Context mCtx, List<Trajet> trajetList) {
@@ -42,8 +37,6 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
     @NonNull
     @Override
     public TrajetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        mAuth = FirebaseAuth.getInstance();
-        currentUser = mAuth.getCurrentUser();
         View view = LayoutInflater.from(mCtx).inflate(R.layout.recyclerview_mes_trajets, parent, false);
         return new TrajetViewHolder(view);
     }
@@ -77,33 +70,17 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
     }
     @Override
     public void onBindViewHolder(@NonNull TrajetViewHolder holder, int position) {
-
         Trajet trajet = trajetList.get(position);
-        if (trajet.getConducteur() == currentUser.getUid()){
-            holder.textViewConducteur.setText("Moi");
-        }else{
-            holder.textViewConducteur.setText("Cliquez ici pour consulter la fiche");
-            holder.textViewConducteur.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    afficherInfosUtilisateur(trajet.getConducteur());
-                }
-            });
-        }
         holder.textViewArrivee.setText(trajet.getDestination());
         holder.textViewDate.setText(trajet.getDate());
         holder.textViewPrix.setText(trajet.getPrix());
         holder.textViewDepart.setText(trajet.getDepart());
-        if (trajet.passagers.length()!=0){
-        String[] passagersRes = trajet.passagers.split(",");
+        String[] passagersRes = trajet.passagersReserves.split(",");
         int itemCount = passagersRes.length;
-        for(int i=0;i<itemCount;i++) {
+        for(int i=0;i<itemCount;i++)
+        {
             Button button1 = new Button(mCtx.getApplicationContext());
-            if(passagersRes[i] == currentUser.getUid()){
-                button1.setText("Moi");
-            }else{
-                button1.setText("Passager " + i);
-            }
+            button1.setText("Passager " + i);
             button1.setId(i);
             button1.setWidth(100);
             button1.setHeight(100);
@@ -116,11 +93,6 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
                 }
             });
         }
-        }else{
-            TextView pasDePassagers = new TextView(mCtx.getApplicationContext());
-            pasDePassagers.setText("Pas de passagers");
-            holder.buttonContainer.addView(pasDePassagers);
-        }
     }
 
     @Override
@@ -130,12 +102,11 @@ public class TrajetsAdapter extends RecyclerView.Adapter<TrajetsAdapter.TrajetVi
 
     class TrajetViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textViewDepart, textViewArrivee, textViewDate, textViewPrix, textViewConducteur;
+        TextView textViewDepart, textViewArrivee, textViewDate, textViewPrix;
         LinearLayout buttonContainer;
 
         public TrajetViewHolder(@NonNull View itemView) {
             super(itemView);
-            textViewConducteur = itemView.findViewById(R.id.text_view_conducteur);
             textViewDepart = itemView.findViewById(R.id.text_view_depart);
             textViewArrivee = itemView.findViewById(R.id.text_view_arrivee);
             textViewDate = itemView.findViewById(R.id.text_view_date);

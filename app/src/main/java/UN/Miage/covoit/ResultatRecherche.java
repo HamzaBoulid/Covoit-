@@ -45,9 +45,9 @@ public class ResultatRecherche extends AppCompatActivity {
                     trajet.destination = snapshot.child("destination").getValue(String.class);
                     trajet.date = snapshot.child("date").getValue(String.class);
                     trajet.prix = snapshot.child("prix").getValue(String.class);
-                    trajet.placesMax = snapshot.child("placesMax").getValue(String.class);
+                    trajet.passagersMax = snapshot.child("placesMax").getValue(String.class);
                     String passagers = snapshot.child("passagers").getValue(String.class);
-                    trajet.passagers = Integer.toString(countPassagers(passagers)) ;
+                    trajet.passagersReserves = Integer.toString(countPassagers(passagers)) ;
                     trajetsKeys.add(snapshot.getKey());
                     trajetList.add(trajet);
                 }
