@@ -5,23 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@android:color/transparent">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="#fff"
+        app:titleTextColor="@color/pink"
+        tools:ignore="MissingConstraints" />
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        />
     <ImageView
-        android:id="@+id/imageAccueil"
-        android:layout_width="518dp"
-        android:layout_height="781dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/covoit_"
+        android:id="@+id/imageMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/mainbg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints"
+        android:layout_marginTop="500dp">
+
+        <ImageView
+            android:id="@+id/imageAccueil"
+            android:layout_width="match_parent"
+            android:transitionName="main_accueil"
+            android:layout_height="1000dp"
+            android:src="@drawable/main_accueil" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/slogan"
+        android:layout_width="450dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="52dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:letterSpacing="0.22"
+        android:text="FAITES DES ÉCONOMIES, PARTAGEZ VOS TRAJETS"
+        android:textColor="#A4B68B"
+        android:textSize="13dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.454" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
