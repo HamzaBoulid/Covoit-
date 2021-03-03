@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="id_activityScreenTitles">
+        <item>DashBoard</item>
+        <item>Mon Profil</item>
+        <item>Ajouter un trajet</item>
+        <item>Mes trajets</item>
+        <item>Déconnexion</item>
+        <item>log out</item>
+    </string-array>
+    <array name="id_activityScreenIcons">
+        <item>@drawable/background</item>
+        <item>@drawable/profil</item>
+        <item>@drawable/ajoutertrajeticon</item>
+        <item>@drawable/mestrajets</item>
+        <item>0</item>
+        <item>@drawable/seconnecter</item>
+    </array>
+</resources>
