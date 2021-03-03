@@ -8,20 +8,7 @@
     android:background="@android:color/transparent">
 
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:background="#fff"
-        app:titleTextColor="@color/pink"
-        tools:ignore="MissingConstraints" />
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        />
     <ImageView
         android:id="@+id/imageMain"
         android:layout_width="match_parent"
