@@ -136,7 +136,7 @@ public class AjouterUnTrajet extends AppCompatActivity {
                 String dateDepart = date.getEditText().getText().toString();
                 String heureDepart = heure.getEditText().getText().toString();
                 String placesDisponibles = passagers.getEditText().getText().toString();
-                String passagers = "0";
+                String passagers = "";
                 String prixPersonne = prix.getEditText().getText().toString();
                 String comment = commentaire.getText().toString();
                 currentUser = mAuth.getCurrentUser();
