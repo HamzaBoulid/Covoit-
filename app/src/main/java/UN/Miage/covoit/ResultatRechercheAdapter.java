@@ -82,7 +82,7 @@ public class ResultatRechercheAdapter extends RecyclerView.Adapter<ResultatReche
         holder.textViewTrajet.setText(departDestination);
         String datePrix = trajet.getDate().concat(" / "+trajet.getPrix());
         holder.textViewDatePrix.setText(datePrix);
-        Integer placesDisponibles =  Integer.parseInt(trajet.getPassagersMax()) - Integer.parseInt(trajet.getPassagersReserves());
+        Integer placesDisponibles =  Integer.parseInt(trajet.getPlacesMax()) - Integer.parseInt(trajet.getPassagers());
         holder.textViewPlacesDisponibles.setText(placesDisponibles.toString());
         if (placesDisponibles == 0)
             holder.afficherTrajet.setEnabled(false);

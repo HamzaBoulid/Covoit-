@@ -30,6 +30,42 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:text="Conducteur :   "
+                        android:fontFamily="@font/baloo"
+                        android:textColor="@color/black"
+                        android:textSize="23sp">
+                    </TextView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/text_view_conducteur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Hamza"
+                    android:fontFamily="@font/amiko_bold"
+                    android:textSize="18sp"
+                    android:textColor="@color/darkgreen"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
                         android:text="Départ :   "
                         android:fontFamily="@font/baloo"
                         android:textColor="@color/black"

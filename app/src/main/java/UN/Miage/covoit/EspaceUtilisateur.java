@@ -19,7 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class EspaceUtilisateur extends AppCompatActivity {
-    Button deconnection, ajouter_trajet, mes_trajets, mes_infos, rechercherTrajet;
+    Button deconnection, ajouter_trajet, mes_trajets, mes_infos, rechercherTrajet, mes_reservations;
     String id;
     // FirebaseDatabase BD = FirebaseDatabase.getInstance();
     //   DatabaseReference table;
@@ -89,6 +89,7 @@ public class EspaceUtilisateur extends AppCompatActivity {
         ajouter_trajet = findViewById((R.id.ajouter_trajet));
         mes_trajets=findViewById(R.id.mes_trajets);
         mes_infos=findViewById(R.id.infos_utilisateur);
+        mes_reservations=findViewById(R.id.mes_reservations);
         rechercherTrajet=findViewById(R.id.rechercherTrajet);
 
 
@@ -107,6 +108,15 @@ public class EspaceUtilisateur extends AppCompatActivity {
             public void onClick(View v) {
                 Intent ajout = new Intent(EspaceUtilisateur.this, AjouterUnTrajet.class);
                 startActivity(ajout);
+                //faut pas ajouter finish pour pouvoir revenir en arrière
+            }
+        });
+
+        mes_reservations.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mes_resa = new Intent(EspaceUtilisateur.this, MesReservations.class);
+                startActivity(mes_resa);
                 //faut pas ajouter finish pour pouvoir revenir en arrière
             }
         });

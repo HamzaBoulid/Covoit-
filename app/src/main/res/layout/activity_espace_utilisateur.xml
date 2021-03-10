@@ -277,7 +277,7 @@
                 <Button
                     android:id="@+id/mes_trajets"
                     style="@style/Widget.App.ShapeableButton"
-                    android:layout_width="210dp"
+                    android:layout_width="150dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:layout_marginRight="100px"
@@ -287,9 +287,21 @@
                     android:textSize="17sp"></Button>
 
                 <Button
+                    android:id="@+id/mes_reservations"
+                    style="@style/Widget.App.ShapeableButton"
+                    android:layout_width="150dp"
+                    android:layout_height="55dp"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="100px"
+                    android:fontFamily="@font/baloo"
+                    android:text="MES RESA"
+                    android:textColor="@color/brightgreen"
+                    android:textSize="17sp"></Button>
+
+                <Button
                     android:id="@+id/infos_utilisateur"
                     style="@style/Widget.App.ShapeableButton"
-                    android:layout_width="210dp"
+                    android:layout_width="150dp"
                     android:layout_height="55dp"
                     android:layout_gravity="center"
                     android:fontFamily="@font/baloo"
