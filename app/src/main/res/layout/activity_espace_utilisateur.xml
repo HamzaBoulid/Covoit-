@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    android:background="@drawable/background"
+    android:background="@drawable/page_chercher"
     android:orientation="vertical"
     tools:context=".EspaceUtilisateur">
 
@@ -14,14 +14,9 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/covoit_" />
 
         <LinearLayout
-            android:layout_width="500dp"
+            android:layout_width="450dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:orientation="vertical">
@@ -35,95 +30,81 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="100px"
-                    android:layout_marginRight="300px"
-                    android:fontFamily="@font/baloo"
+                    android:layout_marginTop="150px"
+                    android:fontFamily="@font/batangas"
                     android:text="BIENVENUE !"
                     android:textColor="@color/darkgreen"
-                    android:textSize="40dp" />
+                    android:textSize="40dp"
+                    android:shadowColor="#BBC2AF"
+                    android:shadowRadius="1"
+                    android:shadowDx="2"
+                    android:shadowDy="3"
+                    android:letterSpacing="0.03"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/baloo"
+                    android:fontFamily="@font/batangas"
                     android:text="Vous cherchez un trajet ?"
                     android:textColor="@color/darkgreen"
-                    android:textSize="25dp" />
+                    android:textSize="30dp"
+                    android:shadowColor="#BBC2AF"
+                    android:shadowRadius="1"
+                    android:shadowDx="2"
+                    android:shadowDy="3"
+                    android:letterSpacing="0.03"/>
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="50px"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="195dp">
+                android:layout_marginTop="70dp"
+                android:gravity="center_horizontal">
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Depart"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    app:errorEnabled="true">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/Depart"
-                        style="@style/EditText.OutlinedBox"
-                        android:layout_width="220dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:errorEnabled="true">
+                        android:fontFamily="@font/alata"
+                        android:hint="Départ"
+                        android:inputType="text"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/amiko_bold"
-                            android:hint="Départ"
-                            android:inputType="text"
-                            android:textColor="@color/darkgreen"
-                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
+                </com.google.android.material.textfield.TextInputLayout>
 
-                    </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal">
 
-                <ImageView
-                    android:id="@+id/imageView3"
-                    android:layout_width="8dp"
-                    android:layout_height="43dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/fleche" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/Arrivee"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    tools:layout_editor_absoluteX="42dp"
-                    tools:layout_editor_absoluteY="195dp">
+                    app:errorEnabled="true">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/Arrivee"
-                        style="@style/EditText.OutlinedBox"
-                        android:layout_width="220dp"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:errorEnabled="true">
+                        android:fontFamily="@font/alata"
+                        android:hint="Arrivée"
+                        android:inputType="text"
+                        android:textColor="@color/darkgreen"
+                        app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
 
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fontFamily="@font/amiko_bold"
-                            android:hint="Arrivée"
-                            android:inputType="text"
-                            android:textColor="@color/darkgreen"
-                            app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
 
@@ -142,7 +123,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:id="@+id/Date"
                         style="@style/EditText.OutlinedBox"
-                        android:layout_width="220dp"
+                        android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         app:errorEnabled="true">
@@ -150,8 +131,8 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:fontFamily="@font/amiko_bold"
-                            android:hint="Date"
+                            android:fontFamily="@font/alata"
+                            android:hint="Aujourd'hui"
                             android:inputType="date"
                             android:textColor="@color/darkgreen"
                             app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
@@ -174,9 +155,9 @@
                     android:orientation="vertical">
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/Heure"
+                        android:id="@+id/NbPersonne"
                         style="@style/EditText.OutlinedBox"
-                        android:layout_width="220dp"
+                        android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         app:errorEnabled="true">
@@ -184,9 +165,9 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:fontFamily="@font/amiko_bold"
-                            android:hint="Heure"
-                            android:inputType="time"
+                            android:fontFamily="@font/alata"
+                            android:hint="1 Passager"
+                            android:inputType="number"
                             android:textColor="@color/darkgreen"
                             app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
 
@@ -196,45 +177,23 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/NbPersonne"
-                    style="@style/EditText.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/amiko_bold"
-                        android:hint="Nombre de passager(s)"
-                        android:inputType="number"
-                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
 
             <Button
                 android:id="@+id/rechercherTrajet"
                 style="@style/Widget.App.ShapeableButton"
-                android:backgroundTint="@color/brightgreen"
-                android:layout_width="210dp"
-                android:layout_height="55dp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:fontFamily="@font/baloo"
+                android:layout_marginTop="60dp"
+                android:fontFamily="@font/palanquin_dark_bold"
+                android:letterSpacing="0.05"
                 android:text="RECHERCHER"
-                android:textColor="@color/darkgreen"
-                android:textSize="17sp"></Button>
+                android:backgroundTint="@color/ButtonBG"
+                android:textColor="@color/white"
+                android:alpha="0.9"
+                android:textSize="22sp"></Button>
 
+            <!-- 4 bouttons à supprimer -->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

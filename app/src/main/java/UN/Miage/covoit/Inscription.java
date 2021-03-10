@@ -129,11 +129,13 @@ public class Inscription extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         mAuth = FirebaseAuth.getInstance();
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
+
         nomInscription = findViewById(R.id.nom_inscription);
         prenomInscription = findViewById(R.id.prenom_inscription);
         pseudoInscription = findViewById(R.id.pseudo_inscription);

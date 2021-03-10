@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="Widget.App.ShapeableButton" parent="Widget.MaterialComponents.ShapeableImageView">
         <item name="shapeAppearanceOverlay">
-            @style/ShapeAppearanceOverlay.App.CornerSize40Percent
+            @style/ShapeAppearanceOverlay.App.CornerSize20Percent
         </item>
         <item name="strokeWidth"> 1dp </item>
 
-        <item name="android:alpha"> 0.8 </item>
     </style>
 
     <style name="Widget.App.ShapeableButton2" parent="Widget.MaterialComponents.ShapeableImageView">
@@ -27,15 +27,17 @@
     </style>
 
     <style name="EditText.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="android:minHeight">56dp</item>
+        <item name="android:minHeight">55dp</item>
         <item name="android:textSize">17sp</item>
-        <item name="android:fontFamily">@font/amiko_bold</item>
+        <item name="android:fontFamily">@font/alata</item>
         <item name="hintEnabled">true</item>
         <item name="android:textColorHint">@color/hintcolor</item>
         <item name="shapeAppearanceOverlay">
-            @style/ShapeAppearanceOverlay.App.CornerSize20Percent
+            @style/ShapeAppearanceOverlay.App.CornerSize15Percent
         </item>
+        <item name="boxStrokeWidth">1.5dp</item>
         <item name="boxStrokeColor"> @color/darkgreen </item>
+
     </style>
 
 </resources>

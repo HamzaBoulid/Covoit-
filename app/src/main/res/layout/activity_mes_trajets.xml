@@ -22,7 +22,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/palanquin_dark_bold"
+            android:letterSpacing="0.03"
+            android:shadowColor="#BBC2AF"
+            android:shadowDx="2"
+            android:shadowDy="3"
+            android:shadowRadius="1"
             android:text="Mes trajets proposés"
             android:textColor="@color/darkgreen"
             android:textSize="35sp" />

@@ -4,7 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -21,6 +26,12 @@ public class EcranAccueil extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextInputLayout email_connection, mdp_connection;
     Button inscription, connection;
+
+    Animation bottomAccueil;
+    ImageView imagePageAccueil;
+    LinearLayout linearLayout;
+
+
     /*
     @Override
     public void onStart() {
@@ -44,13 +55,13 @@ public class EcranAccueil extends AppCompatActivity {
         TextView phraseAccueil = (TextView) findViewById(R.id.phrase_accueil);
         switch (valeur){
             case 1:
-                phraseAccueil.setText("BON RETOUR PARMI NOUS!");
+                phraseAccueil.setText("BON RETOUR PARMI NOUS !");
                 break;
             case 2:
-                phraseAccueil.setText("D'INNOMBRABLES TRAJETS VOUS ATTENDENT!");
+                phraseAccueil.setText("D'INNOMBRABLES TRAJETS VOUS ATTENDENT !");
                 break;
             case 3:
-                phraseAccueil.setText("HEY MATELOT!");
+                phraseAccueil.setText("HEY MATELOT !");
                 break;
         }
         phraseAccueil.setTextSize(25);
@@ -91,7 +102,19 @@ public class EcranAccueil extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ecran_accueil);
-       // randomMessageAccueil();
+
+        //Animation
+        bottomAccueil = AnimationUtils.loadAnimation(this, R.anim.bottom_accueil);
+
+        imagePageAccueil = findViewById(R.id.imagePageAccueil);
+        linearLayout = findViewById(R.id.linearLayout);
+
+        imagePageAccueil.setAnimation(bottomAccueil);
+        linearLayout.setAnimation(bottomAccueil);
+
+
+
+        // randomMessageAccueil();
         inscription = findViewById(R.id.inscription);
         connection = findViewById(R.id.connection);
         email_connection = findViewById(R.id.email_connection);

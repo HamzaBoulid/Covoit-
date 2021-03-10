@@ -2,6 +2,11 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/baloo</item>
+        <item>@font/baumans</item>
+        <item>@font/fredoka_one</item>
+        <item>@font/hammersmith_one</item>
         <item>@font/karla</item>
+        <item>@font/montserrat_bold</item>
+        <item>@font/secular_one</item>
     </array>
 </resources>

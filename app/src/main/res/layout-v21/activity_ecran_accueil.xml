@@ -1,58 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/seconnecter"
-    android:gravity="center"
-    android:hapticFeedbackEnabled="false"
-    android:orientation="vertical"
     tools:context=".EcranAccueil">
 
+    <ImageView
+        android:id="@+id/imagePageAccueil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/main_accueil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="450dp"
         android:gravity="center"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="42dp"
-        tools:layout_editor_absoluteY="195dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7">
 
         <TextView
             android:id="@+id/phrase_accueil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="22dp"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/batangas"
+            android:letterSpacing="0.03"
+            android:shadowColor="#BBC2AF"
+            android:shadowDx="2"
+            android:shadowDy="3"
+            android:shadowRadius="1"
+            android:text="D'INNOMBRABLES TRAJETS VOUS ATTENDENT !"
             android:textColor="@color/darkgreen"
-            android:textSize="20sp" />
+            android:textSize="21sp" />
 
         <LinearLayout
+            android:id="@+id/info_cnx"
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="70dp"
             android:layout_marginBottom="20dp"
-            android:orientation="vertical"
-            android:layout_width="wrap_content">
+            android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/email_connection"
                 style="@style/EditText.OutlinedBox"
                 android:layout_width="400dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_height="wrap_content">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/baloo"
-                    android:textSize="17sp"
+                    android:fontFamily="@font/alata"
                     android:hint="@string/adresse_mail"
                     android:inputType="text"
                     android:textColor="@color/darkgreen"
-                    android:textColorHint="#6B576A37"></com.google.android.material.textfield.TextInputEditText>
+                    android:textColorHint="#6B576A37"
+                    android:textSize="17sp">
+
+                </com.google.android.material.textfield.TextInputEditText>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -61,19 +78,18 @@
                 style="@style/EditText.OutlinedBox"
                 android:layout_width="400dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="30dp">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:fontFamily="@font/baloo"
-                    android:textSize="17sp"
+                    android:fontFamily="@font/alata"
                     android:hint="@string/mot_de_passe"
                     android:inputType="textPassword"
                     android:textColor="@color/darkgreen"
                     android:textColorHint="#6B576A37"
+                    android:textSize="17sp"
                     app:passwordToggleEnabled="true">
 
                 </com.google.android.material.textfield.TextInputEditText>
@@ -81,41 +97,73 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/connection"
-                style="@style/Widget.App.ShapeableButton"
-                android:layout_width="220dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:fontFamily="@font/baloo"
-                android:text="@string/se_connecter"
-                android:textColor="@color/brightgreen"
-                android:textSize="18sp"></Button>
-
-            <Button
-                android:id="@+id/inscription"
-                style="@style/Widget.App.ShapeableButton"
-                android:layout_width="220dp"
-                android:layout_height="60dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/baloo"
-                android:text="@string/s_inscrire"
-                android:textColor="@color/brightgreen"
-                android:textSize="18sp"></Button>
-
-            <TextView
                 android:id="@+id/MDPoublie"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/amiko_bold"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/alata"
                 android:text="@string/mot_de_passe_e_mail_oubli"
+                android:textAllCaps="false"
                 android:textColor="@color/darkgreen"
-                android:textSize="15sp" />
+                android:textSize="12sp"></Button>
+
+            <!-- A faire fonctionner,
+                et implmenter surtout pour l'affichage des trajets qui prend du temps -->
+
+
+            <Button
+                android:id="@+id/connection"
+                style="@style/Widget.App.ShapeableButton"
+                android:layout_width="400dp"
+                android:layout_height="60dp"
+                android:layout_below="@+id/mdp_connection"
+                android:layout_gravity="center"
+                android:layout_marginTop="60dp"
+                android:alpha="0.9"
+                android:fontFamily="@font/palanquin_dark_bold"
+                android:letterSpacing="0.05"
+                android:text="@string/se_connecter"
+                android:backgroundTint="@color/ButtonBG"
+                android:textColor="@color/white"
+                android:textSize="21sp"></Button>
+
+            <Button
+                android:id="@+id/inscription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/palanquin_dark_bold"
+                android:text="@string/s_inscrire"
+                android:textAllCaps="false"
+                android:textColor="@color/colorButton"
+                android:textSize="18sp"></Button>
 
         </LinearLayout>
+
     </LinearLayout>
-</LinearLayout>
+
+    <!-- A faire fonctionner,
+           et implmenter surtout pour l'affichage des trajets qui prend du temps -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:padding="20dp"
+        android:background="@drawable/green_circle_loading"
+        android:elevation="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"></ProgressBar>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

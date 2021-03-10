@@ -6,91 +6,81 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@drawable/ajoutertraget"
+    android:background="@drawable/page_ajoutertrajet"
     tools:context=".Inscription">
 
     <LinearLayout
-        android:layout_width="500dp"
+        android:layout_width="450dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/baloo"
+                android:fontFamily="@font/batangas"
+                android:letterSpacing="0.03"
+                android:shadowColor="#BBC2AF"
+                android:shadowDx="2"
+                android:shadowDy="3"
+                android:shadowRadius="1"
                 android:text="Voulez-vous ajouter un trajet ?"
                 android:textColor="@color/darkgreen"
-                android:textSize="25dp" />
+                android:textSize="30sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50px"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/lieu_depart"
-                    style="@style/EditText.OutlinedBox"
-                    android:layout_width="220dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    app:errorEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:hint="Départ"
-                        android:inputType="text"
-                        android:fontFamily="@font/amiko_bold"
-                        android:textColor="@color/darkgreen"
-                        app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-            </LinearLayout>
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="8dp"
-                android:layout_height="43dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/fleche" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                tools:layout_editor_absoluteX="42dp"
-                tools:layout_editor_absoluteY="195dp">
+            android:layout_marginTop="40dp"
+            android:gravity="center_horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/lieu_arrivee"
+                android:id="@+id/lieu_depart"
                 style="@style/EditText.OutlinedBox"
-                android:layout_width="220dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/amiko_bold"
+                    android:layout_height="wrap_content"
+                    android:hint="Départ"
+                    android:inputType="text"
+                    android:fontFamily="@font/alata"
+                    android:textColor="@color/darkgreen"
+                    app:errorEnabled="true">
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/lieu_arrivee"
+                style="@style/EditText.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
                     android:hint="Arrivée"
                     android:inputType="text"
                     android:textColor="@color/darkgreen"
@@ -100,69 +90,25 @@
 
         </LinearLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20px"
-        android:orientation="horizontal">
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/date_depart"
                 style="@style/EditText.OutlinedBox"
-                android:layout_width="220dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 app:errorEnabled="true">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/amiko_bold"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alata"
                     android:hint="Date départ"
                     android:inputType="date"
-                    android:textColor="@color/darkgreen"
-                    app:errorEnabled="true">
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="8dp"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/heure_depart"
-                style="@style/EditText.OutlinedBox"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/amiko_bold"
-                    android:hint="Heure départ"
-                    android:inputType="time"
                     android:textColor="@color/darkgreen"
                     app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
 
@@ -170,131 +116,203 @@
 
         </LinearLayout>
 
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <!-- est ce qu'on ajoute l'heure départ et arrivée ? -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/heure_depart"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Heure départ"
+                        android:inputType="time"
+                        android:fontFamily="@font/alata"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/heure_arrivee"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:errorEnabled="true">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
+                        android:hint="Heure arrivée"
+                        android:inputType="time"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/prix"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:errorEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Prix(€) / passager"
+                        android:inputType="time"
+                        android:fontFamily="@font/alata"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nb_passagers"
+                    style="@style/EditText.OutlinedBox"
+                    android:layout_width="190dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:errorEnabled="true">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fontFamily="@font/alata"
+                        android:hint="1 passager"
+                        android:inputType="number"
+                        android:textColor="@color/darkgreen"></com.google.android.material.textfield.TextInputEditText>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20px"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/nb_passagers"
-                style="@style/EditText.OutlinedBox"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/amiko_bold"
-                    android:hint="Nombre de passager(s)"
-                    android:inputType="number"
-                    android:textColor="@color/darkgreen"
-                    app:errorEnabled="true"></com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="8dp"
-            android:layout_height="43dp"
-            android:layout_gravity="center"
-            android:layout_weight="1" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/prix"
-                style="@style/EditText.OutlinedBox"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:errorEnabled="true">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:fontFamily="@font/amiko_bold"
-                    android:hint="Prix (€)"
-                    android:inputType="number"
-                    android:textColor="@color/darkgreen"
-                    app:errorEnabled="true">
-
-                </com.google.android.material.textfield.TextInputEditText>
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100px"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/baloo"
+            android:fontFamily="@font/alata"
             android:text="Si vous désirez laisser un commentaire,"
             android:textColor="@color/darkgreen"
             android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/commentaire"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="10px"
-            android:background="@null"
-            android:ems="10"
-            android:fontFamily="@font/amiko_bold"
-            android:hint="Commentaire"
-            android:inputType="textLongMessage"
-            android:textColor="@color/darkgreen"
-            android:textColorHint="#6B576A37"
-            app:errorEnabled="true" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1.5dp"
-            android:layout_below="@id/commentaire"
-            android:layout_marginRight="20px"
-            android:background="@color/darkgreen" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/commentaire"
+                style="@style/EditText.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Commentaire"
+                    android:inputType="textLongMessage"
+                    android:fontFamily="@font/alata"
+                    android:textColor="@color/darkgreen"
+                    app:errorEnabled="true">
+                </com.google.android.material.textfield.TextInputEditText>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
 
         <Button
             android:id="@+id/button_ajouter_trajet"
             style="@style/Widget.App.ShapeableButton"
-            android:layout_width="220dp"
+            android:layout_width="300dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/baloo"
-            android:text="AJOUTER CE TRAJET"
-            android:textColor="@color/brightgreen"
-            android:textSize="18sp">
+            android:layout_marginTop="25dp"
+            android:alpha="0.9"
+            android:fontFamily="@font/palanquin_dark_bold"
+            android:letterSpacing="0.05"
+            android:text="Ajouter ce trajet"
+            android:backgroundTint="@color/ButtonBG"
+            android:textColor="@color/white"
+            android:textSize="19sp"></Button>
 
-        </Button>
-
+        <!-- boutton à supprimer -->
         <Button
             android:id="@+id/button_deconnection"
             style="@style/Widget.App.ShapeableButton"
