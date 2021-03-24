@@ -63,7 +63,7 @@ public class AfficherTrajetSeul extends AppCompatActivity {
                 }
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
+        //ignore
                 }
             });
             }
