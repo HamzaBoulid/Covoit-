@@ -1,5 +1,6 @@
 package UN.Miage.covoit;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class AfficherTrajetSeul extends AppCompatActivity {
     TextView depart, arrivee, date, prix, conducteur;
     String keyTrajet;
     Button reserver;
+    Button afficher_carte;
     FirebaseDatabase BD = FirebaseDatabase.getInstance();
     DatabaseReference table;
     FirebaseUser currentUser;
@@ -38,6 +40,7 @@ public class AfficherTrajetSeul extends AppCompatActivity {
         date = findViewById(R.id.text_view_date);
         prix = findViewById(R.id.text_view_prix);
         reserver = findViewById(R.id.button_reserver_trajet);
+        afficher_carte = findViewById(R.id.button_afficher_carte);
         currentUser = mAuth.getCurrentUser();
         afficherInfosTrajet();
 
@@ -69,7 +72,26 @@ public class AfficherTrajetSeul extends AppCompatActivity {
             }
         });
 
+        afficher_carte.setOnClickListener(afficher_carteOnClick);
+
+
+
+
     }
+
+    public View.OnClickListener afficher_carteOnClick = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View activity_maps) {
+            Intent afficherCarte = new Intent(AfficherTrajetSeul.this, MapsActivity.class);
+            afficherCarte.putExtra("dapart", depart.toString());
+            afficherCarte.putExtra("arrivée", arrivee.toString());
+            startActivity(afficherCarte);
+        }
+
+    };
+
+
 
     private void afficherInfosTrajet(){
         Intent intent = getIntent();

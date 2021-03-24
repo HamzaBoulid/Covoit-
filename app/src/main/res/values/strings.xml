@@ -6,4 +6,5 @@
     <string name="s_inscrire">S\'INSCRIRE</string>
     <string name="mot_de_passe_e_mail_oubli">Mot de passe/e-mail oublié ?</string>
     <string name="pseudo">Pseudo</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

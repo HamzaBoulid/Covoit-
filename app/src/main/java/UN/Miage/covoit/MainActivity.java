@@ -20,8 +20,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.yarolegovich.slidingrootnav.SlidingRootNav;
-import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder;
+
 
 import java.util.Arrays;
 

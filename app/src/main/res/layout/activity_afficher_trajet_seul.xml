@@ -166,6 +166,12 @@
                 android:text="Réserver"
                 ></Button>
 
+            <Button
+                android:id="@+id/button_afficher_carte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Afficher carte" />
+
 
         </LinearLayout>
 
