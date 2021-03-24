@@ -1,18 +1,18 @@
 package UN.Miage.covoit;
 
 public class Trajet {
-    String depart, destination, date, heure, passagersMax, passagersReserves, prix, commentaire, conducteur;
+    String depart, destination, date, heure, placesMax, passagers, prix, commentaire, conducteur;
 
     public Trajet() {
     }
 
-    public Trajet(String depart, String destination, String date, String heure,String passagersMax, String passagersReserves, String prix, String comment, String conducteur) {
+    public Trajet(String depart, String destination, String date, String heure,String placesMax, String passagers, String prix, String comment, String conducteur) {
         this.depart=depart;
         this.destination=destination;
         this.date=date;
         this.heure=heure;
-        this.passagersMax=passagersMax;
-        this.passagersReserves=passagersReserves;
+        this.placesMax=placesMax;
+        this.passagers=passagers;
         this.prix=prix;
         this.commentaire=comment;
         this.conducteur=conducteur;
@@ -51,20 +51,20 @@ public class Trajet {
         this.heure = heure;
     }
 
-    public String getPassagersMax() {
-        return passagersMax;
+    public String getPlacesMax() {
+        return placesMax;
     }
 
-    public void setPassagersMax(String passagersMax) {
-        this.passagersMax = passagersMax;
+    public void setPlacesMax(String placesMax) {
+        this.placesMax = placesMax;
     }
 
-    public String getPassagersReserves() {
-        return passagersReserves;
+    public String getPassagers() {
+        return passagers;
     }
 
-    public void setPassagersReserves(String passagersReserves) {
-        this.passagersReserves = passagersReserves;
+    public void setPassagers(String passagers) {
+        this.passagers = passagers;
     }
 
     public String getPrix() {
